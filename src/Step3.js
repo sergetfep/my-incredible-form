@@ -6,13 +6,20 @@ import { FileInput } from './components/FileInput';
 import { useForm } from 'react-hook-form';
 import { PrimaryButton } from './components/PrimaryButton';
 import { useHistory } from 'react-router-dom';
+import { useData } from './DataContext';
 
 export const Step3 = () => {
   const history = useHistory();
-  const { control, handleSubmit } = useForm();
+  const { data, setValues } = useData();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      files: data.files,
+    },
+  });
 
-  const onSubmit = () => {
-    history.push('./result');
+  const onSubmit = (data) => {
+    history.push('/result');
+    setValues(data);
   };
 
   return (

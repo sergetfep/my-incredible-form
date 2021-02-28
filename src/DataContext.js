@@ -13,7 +13,7 @@ export const DataProvider = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider values={{ data, setValues }}>
+    <DataContext.Provider value={{ data, setValues }}>
       {children}
     </DataContext.Provider>
   );
